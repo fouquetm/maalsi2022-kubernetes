@@ -19,7 +19,10 @@ spec:
             - name: ACCEPT_EULA
               value: "Y"
             - name: MSSQL_SA_PASSWORD
-              value: P@ssw0rd2023!
+              valueFrom:
+                configMapKeyRef:
+                  name: mssql
+                  key: connectionstrings
           image: mcr.microsoft.com/mssql/server:2019-CU14-ubuntu-20.04
           name: lab-mssql
           ports:

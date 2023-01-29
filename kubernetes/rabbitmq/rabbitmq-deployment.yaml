@@ -17,9 +17,15 @@ spec:
       containers:
         - env:
             - name: RABBITMQ_DEFAULT_PASS
-              value: admin
+              valueFrom:
+                configMapKeyRef:
+                  name: rabbitmq
+                  key: username
             - name: RABBITMQ_DEFAULT_USER
-              value: admin
+              valueFrom:
+                configMapKeyRef:
+                  name: rabbitmq
+                  key: password
           image: rabbitmq:3.8.25-management-alpine
           name: lab-rabbitmq
           ports:

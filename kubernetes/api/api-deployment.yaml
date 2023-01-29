@@ -16,15 +16,39 @@ spec:
         io.kompose.service: api
     spec:
       containers:
-        - env:
-            - name: ConnectionStrings__DefaultConnection
-              value: Server=tcp:mssql,1433;Initial Catalog=RabbitMqDemo;Persist Security Info=False;User ID=sa;Password=P@ssw0rd2023!;Connection Timeout=30;
+        - env:            
+            - name: APPLICATION_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  name: api
+                  key: application_database
+            - name: MSSQL_ROOT_USERNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: api
+                  key: mssql_root_username
+            - name: MSSQL_ROOT_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  name: api
+                  key: mssql_root_password
             - name: RabbitMQ__Hostname
-              value: rabbitmq
+              valueFrom:
+                configMapKeyRef:
+                  name: api
+                  key: rabbitmq_hostname
             - name: RabbitMQ__Password
-              value: admin
+              valueFrom:
+                configMapKeyRef:
+                  name: api
+                  key: rabbitmq_password
             - name: RabbitMQ__Username
-              value: admin
+              valueFrom:
+                configMapKeyRef:
+                  name: api
+                  key: rabbitmq_username
+            - name: ConnectionStrings__DefaultConnection
+              value: Server=tcp:mssql,1433;Initial Catalog=$(APPLICATION_DATABASE);Persist Security Info=False;User ID=$(MSSQL_ROOT_USERNAME);Password=$(MSSQL_ROOT_PASSWORD);Connection Timeout=30;
           image: matthieuf/pubsub-api:1.2
           name: api
           ports:

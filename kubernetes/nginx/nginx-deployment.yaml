@@ -23,12 +23,15 @@ spec:
             - containerPort: 8081
           resources: {}
           volumeMounts:
-            - mountPath: /etc/nginx/nginx.conf
-              name: nginx-claim0
+            - name: config
+              mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
               readOnly: true
       restartPolicy: Always
       volumes:
-        - name: nginx-claim0
-          hostPath:
-            path: /run/desktop/mnt/host/d/repositories/kubernetes/nginx_data/nginx.conf
-status: {}
+        - name: config
+          configMap:
+            name: nginx
+            items:
+              - key: nginx.conf
+                path: nginx.conf
