@@ -24,12 +24,12 @@ spec:
                   key: application_database
             - name: MSSQL_ROOT_USERNAME
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   name: api
                   key: mssql_root_username
             - name: MSSQL_ROOT_PASSWORD
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   name: api
                   key: mssql_root_password
             - name: RabbitMQ__Hostname
@@ -39,12 +39,12 @@ spec:
                   key: rabbitmq_hostname
             - name: RabbitMQ__Password
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   name: api
                   key: rabbitmq_password
             - name: RabbitMQ__Username
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   name: api
                   key: rabbitmq_username
             - name: ConnectionStrings__DefaultConnection

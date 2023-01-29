@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: mssql
-data:
-  connectionstrings: P@ssw0rd2023!

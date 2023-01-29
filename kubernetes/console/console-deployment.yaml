@@ -24,12 +24,12 @@ spec:
                   key: rabbitmq_hostname
             - name: RabbitMQ__Password
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   name: console
                   key: rabbitmq_password
             - name: RabbitMQ__Username
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   name: console
                   key: rabbitmq_username
           image: matthieuf/pubsub-console:1.0

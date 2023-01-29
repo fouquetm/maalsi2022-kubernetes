@@ -4,5 +4,3 @@ metadata:
   name: console
 data:
   rabbitmq_hostname: "rabbitmq"
-  rabbitmq_password: "admin"
-  rabbitmq_username: "admin"

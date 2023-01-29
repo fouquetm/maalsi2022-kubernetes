@@ -3,9 +3,5 @@ kind: ConfigMap
 metadata:
   name: api
 data:
-  mssql_root_username: "sa"
-  mssql_root_password: "P@ssw0rd2023!"
   application_database: "RabbitMqDemo"
   rabbitmq_hostname: "rabbitmq"
-  rabbitmq_password: "admin"
-  rabbitmq_username: "admin"

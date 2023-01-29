@@ -18,14 +18,14 @@ spec:
         - env:
             - name: RABBITMQ_DEFAULT_PASS
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   name: rabbitmq
-                  key: username
+                  key: rabbitmq_username
             - name: RABBITMQ_DEFAULT_USER
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   name: rabbitmq
-                  key: password
+                  key: rabbitmq_password
           image: rabbitmq:3.8.25-management-alpine
           name: lab-rabbitmq
           ports:
