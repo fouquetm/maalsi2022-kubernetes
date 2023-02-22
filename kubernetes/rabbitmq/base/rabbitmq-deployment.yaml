@@ -41,9 +41,9 @@ spec:
       volumes:
         - name: rabbitmq-claim0
           hostPath:
-            path: /run/desktop/mnt/host/d/repositories/kubernetes/rabbitmq_data/data
+            path: ""
             type: DirectoryOrCreate
         - name: rabbitmq-claim1
           hostPath:
-            path: /run/desktop/mnt/host/d/repositories/kubernetes/rabbitmq_data/log
+            path: ""
             type: DirectoryOrCreate

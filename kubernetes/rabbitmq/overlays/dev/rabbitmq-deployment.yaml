@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: rabbitmq
+  name: rabbitmq
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: rabbitmq
+  template:
+    metadata:
+      labels:
+        io.kompose.service: rabbitmq
+    spec:
+      volumes:
+        - name: rabbitmq-claim0
+          hostPath:
+            path: /run/desktop/mnt/host/d/repositories/kubernetes/rabbitmq_data/data
+            type: DirectoryOrCreate
+        - name: rabbitmq-claim1
+          hostPath:
+            path: /run/desktop/mnt/host/d/repositories/kubernetes/rabbitmq_data/log
+            type: DirectoryOrCreate
