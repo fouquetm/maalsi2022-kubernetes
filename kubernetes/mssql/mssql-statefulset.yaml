@@ -23,9 +23,9 @@ spec:
               value: "Y"
             - name: MSSQL_SA_PASSWORD
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   name: mssql
-                  key: connectionstrings
+                  key: mssql_root_password
             - name: MSSQL_PID
               value: "Developer"
           volumeMounts:
