@@ -35,5 +35,5 @@ spec:
       volumes:
         - name: mssql-claim0
           hostPath:
-            path: /run/desktop/mnt/host/d/repositories/kubernetes/mssql_maalsi_data
+            path: ""
             type: DirectoryOrCreate

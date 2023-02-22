@@ -6,7 +6,7 @@ metadata:
   name: mssql
 spec:
   ports:
-    - name: "1433"
+    - name: "sql"
       port: 1433
       targetPort: 1433
   selector:
